@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anz convert</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Old+Italic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="contenedor contenido">
+        <h1 class="contenido-titulo">Youtube a MP3</h1>
+         <form action="/convert-mp3" method="POST" id="form" class="contenido-formulario">
+            <div>
+                <label for="videoID" class="formulario-titulo">Ingrese el Video ID</label>
+            </div>
+            <div>
+                <input name="videoID" id="videoID" class="campo" type="text">
+            </div>
+            <div>
+                <button name="convert-btn" id="convert-btn" class="btn">Convertir</button>
+            </div>
+        </form>
+        <div class="bottom-container">
+            <% if(typeof success != "undefined" && success) { %>
+                <div class="success">
+                    <p><%= song_title %></p>
+                    <a href="<%= song_link %>"><button class="btn" id="download-btn"> Descargar </button></a>
+                </div>
+            <% } else if(typeof success != "undefined" && !success) { %>
+                <div class="errors">
+                    <p><%= message %></p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
